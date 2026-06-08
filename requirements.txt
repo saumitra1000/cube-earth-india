@@ -6,7 +6,6 @@ httpx==0.28.1
 aiohttp==3.11.10
 tenacity==9.0.0
 earthaccess==0.11.0
-h5py==3.11.0
 pyproj==3.6.1
 shapely==2.0.6
 numpy==1.26.4
