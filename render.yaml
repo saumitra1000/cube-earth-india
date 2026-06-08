@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: cube-earth
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.request_router:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: NASA_EARTHDATA_TOKEN
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: CDSE_CLIENT_ID
+        sync: false
+      - key: CDSE_CLIENT_SECRET
+        sync: false
+      - key: EARTHDATA_USERNAME
+        sync: false
+      - key: EARTHDATA_PASSWORD
+        sync: false
