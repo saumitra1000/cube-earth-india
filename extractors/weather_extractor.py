@@ -28,7 +28,6 @@ def get_weather_data(lat, lng):
             "daily": "temperature_2m_max,temperature_2m_min,precipitation_sum,shortwave_radiation_sum,et0_fao_evapotranspiration",
             "current": "temperature_2m,rain,soil_temperature_0cm,soil_temperature_6cm,soil_temperature_18cm",
             "timezone": "Asia/Kolkata",
-            "past_days": 7,
             "forecast_days": 7,
             "models": "best_match"
         }
