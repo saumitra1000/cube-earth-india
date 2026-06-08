@@ -11,6 +11,7 @@ from backend.bootstrap import Bootstrap
 from extractors.weather_extractor import get_weather_data
 from extractors.grass_model import estimate_grass_cover
 from extractors.nitrogen_planner import calculate_n_window
+from extractors.irrigation_planner import calculate_irrigation
 from extractors.slurry_planner import calculate_slurry_window
 
 app = FastAPI(title="Cube Earth API")
