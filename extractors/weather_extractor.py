@@ -31,7 +31,13 @@ def get_weather_data(lat, lng):
             "forecast_days": 7,
             "models": "best_match"
         }
-        r = requests.get(url, params=params, timeout=8)
+        import time
+        r = None
+        for attempt in range(3):
+            r = requests.get(url, params=params, timeout=8)
+            if r.status_code != 429:
+                break
+            time.sleep(5 * (attempt + 1))
         r.raise_for_status()
         data = r.json()
 
