@@ -248,6 +248,8 @@ async def field_profile(req: ProfileRequest):
 
         result = await service.build_profile(req.lat, req.lng, req.year, parcel_override=req.parcel_override)
         # Weather + grass model
+        grass = None
+        weather = None
         try:
             weather = get_weather_data(req.lat, req.lng)
             ndvi = result.get('vegetation', {}).get('ndvi')
