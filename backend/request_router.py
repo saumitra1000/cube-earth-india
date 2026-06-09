@@ -269,9 +269,15 @@ async def field_profile(req: ProfileRequest):
         # Slurry planner
         slurry = calculate_slurry_window(weather, smap_val)
 
+        # Irrigation planner
+        crop_name = req.parcel_override.get('crop','Grapes') if req.parcel_override else 'Grapes'
+        area_ha = req.parcel_override.get('claim_area', 1.0) if req.parcel_override else 1.0
+        irrigation = calculate_irrigation(weather, smap_val, crop_name, area_ha)
+
         response = {"success": True,
                 "nitrogen": n_plan,
                 "slurry": slurry,
+                "irrigation": irrigation,
                 **result}
         # Cache result
         _profile_cache[cache_key] = (time.time(), response)
